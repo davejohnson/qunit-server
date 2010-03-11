@@ -627,7 +627,7 @@ function done() {
 
 	document.getElementById('time').value = (new Date().getTime() - QUnit.testSuiteStart);
 	if (location.href.indexOf('submitresults=true') > 0) {
-		submitForm.submit();
+		QUnit.submitForm.submit();
 	}
 }
 
