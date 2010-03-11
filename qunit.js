@@ -1,13 +1,4 @@
 /*
- * QUnit-server - Extension of QUnit for CI
- * 
- * http://github.com/davejohnson/qunit-server
- *
- * Copyright (c) 2009 Dave Johnson
- * Licensed under the MIT (MIT-LICENSE.txt)
- */
-
-/*
  * QUnit - A JavaScript Unit Testing Framework
  * 
  * http://docs.jquery.com/QUnit
@@ -54,6 +45,8 @@ var QUnit = {
 	// call on start of module test to prepend name to all tests
 	module: function(name, testEnvironment) {
 		config.currentModule = name;
+		
+		QUnit.currentModule = name;
 
 		synchronize(function() {
 			if ( config.currentModule ) {
@@ -404,7 +397,7 @@ var QUnit = {
 		if (QUnit.submitForm == null) {
 			var f = QUnit.submitForm = document.createElement('form');
 			f.id = 'submitForm';
-			f.action = 'http://localhost:8888/jsunit/acceptor';
+			f.action = 'http://localhost:8889/jsunit/acceptor';
 			f.method = 'POST';
 			f.style.position = 'absolute';
 			f.style.left = '-100000px';
